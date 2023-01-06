@@ -1,9 +1,8 @@
 import java.util.*;
 
 class arrayGenerator {
-    ArrayList<Integer> list = new ArrayList<>();
-    void generateRandom(int n) {
-        list = new ArrayList<>(n);
+    public static ArrayList<Integer> generateRandom(int n) {
+        ArrayList<Integer> list = new ArrayList<>();
 
         // Fill the vector with the values
         // 1, 2, 3, ..., n
@@ -13,15 +12,19 @@ class arrayGenerator {
         // While vector has elements
         // get a random number from the vector and print it
         Collections.shuffle(list);
+
+        return list;
+
     }
 
-    // public static void main(String[] args) {
-    //     arrayGenerator a = new arrayGenerator();
-    //     int n = Integer.parseInt(args[0]);
-    //     a.generateRandom(n);
+    public static void main(String[] args) {
+        int n = Integer.parseInt(args[0]);
+        ArrayList<Integer> list = arrayGenerator.generateRandom(n);
 
-    //     System.out.println(a.list.toString());
-        
-    // }
+        System.out.println(list.toString());
+        selectionSort.Sort(list);
+        System.out.println(list.toString());
+
+    }
 
 }
