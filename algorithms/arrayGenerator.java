@@ -23,10 +23,7 @@ class arrayGenerator {
 
         System.out.println(list.toString());
         selectionSort.Sort(list);
-<<<<<<< Updated upstream
-=======
         // bubbleSort.Sort(list);
->>>>>>> Stashed changes
         System.out.println(list.toString());
 
     }
