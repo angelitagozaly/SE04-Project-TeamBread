@@ -4,10 +4,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 import java.util.Random;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 
 public class sortVisualizer extends Screen {
@@ -120,9 +116,7 @@ public class sortVisualizer extends Screen {
     }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
         done();
-
     }
 
     @Override
@@ -209,6 +203,7 @@ public class sortVisualizer extends Screen {
                 return null;
             }
         };
+        new test(this);
     }
 
     protected void initShuffler() {
