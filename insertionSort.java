@@ -10,8 +10,6 @@ public class insertionSort implements sortInterface {
             while (visualizer.traversing_index > 0 &&
                     visualizer.bar_height[visualizer.traversing_index] < visualizer.bar_height[visualizer.traversing_index
                             - 1]) {
-
-                // sortArray sortA = new sortArray(visualizer);
                 visualizer.swap(visualizer.traversing_index, visualizer.traversing_index - 1);
                 visualizer.swapCount++;
                 visualizer.jLabel3.setText("Swaps: " + visualizer.swapCount);

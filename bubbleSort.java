@@ -7,7 +7,6 @@ public class bubbleSort implements sortInterface {
         visualizer.jLabel2.setText("Time Complexity | Best: O(n) Average: O(n^2) Worst: O(n^2)");
         for (int i = 0; i < visualizer.SIZE - 1; i++) {
             for (int j = 0; j < visualizer.SIZE - i - 1; j++) {
-                // sortArray sortA = new sortArray(visualizer);
                 if (visualizer.bar_height[j] > visualizer.bar_height[j + 1]) {
                     visualizer.swap(j, j + 1);
                     visualizer.swapCount++;

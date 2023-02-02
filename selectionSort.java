@@ -8,7 +8,6 @@ public class selectionSort implements sortInterface {
         visualizer.current_index = 0;
         for (int i = 0; i < visualizer.SIZE - 1; i++) {
             int index = i;
-            // sortArray sortA = new sortArray(visualizer);
             for (int j = i + 1; j < visualizer.SIZE; j++) {
                 visualizer.current_index = j;
                 if (visualizer.bar_height[j] < visualizer.bar_height[index]) {
