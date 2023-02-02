@@ -6,14 +6,15 @@ public class selectionSort implements sortInterface {
         visualizer.jLabel1.setText("Selection Sort");
         visualizer.jLabel2.setText("Time Complexity | Best: O(n^2) Average: O(n^2) Worst: O(n^2)");
         visualizer.current_index = 0;
-        for (int i = 0; i < visualizer.arraySize() - 1; i++) {
+        for (int i = 0; i < visualizer.SIZE - 1; i++) {
             int index = i;
-            for (int j = i + 1; j < visualizer.arraySize(); j++) {
+            // sortArray sortA = new sortArray(visualizer);
+            for (int j = i + 1; j < visualizer.SIZE; j++) {
                 visualizer.current_index = j;
-                if (visualizer.getValue(j) < visualizer.getValue(index)) {
+                if (visualizer.bar_height[j] < visualizer.bar_height[index]) {
                     index = j;
                 }
-                Thread.sleep(1);
+                visualizer.setDelay();
                 visualizer.repaint();
             }
             visualizer.swap(i, index);
@@ -26,15 +27,5 @@ public class selectionSort implements sortInterface {
     @Override
     public String getName() {
         return "Selection Sort";
-    };
-
-    @Override
-    public long getDelay() {
-        return Delay;
-    };
-
-    @Override
-    public void setDelay(long delay) {
-        this.Delay = delay;
     };
 }

@@ -12,9 +12,9 @@ import javax.swing.SwingWorker;
 
 public class sortVisualizer extends Screen {
     private static final long serialVersionUID = 1L;
-    private final int WIDTH = 960, HEIGHT = 496; // WIDTH * 9 / 16;
-    private int SIZE;
-    private float BAR_WIDTH;
+    protected final int WIDTH = 960, HEIGHT = 496; // WIDTH * 9 / 16;
+    protected int SIZE;
+    protected float BAR_WIDTH;
     public float[] bar_height;
     private SwingWorker<Void, Void> shuffler, sorter;
     public int current_index, traversing_index;
@@ -252,4 +252,23 @@ public class sortVisualizer extends Screen {
 
     }
 
+    protected void setDelay() throws InterruptedException {
+        if (1 < SIZE && SIZE <= 10) {
+            Thread.sleep(100);
+        } else if (10 < SIZE && SIZE <= 30) {
+            Thread.sleep(50);
+        } else if (30 < SIZE && SIZE <= 50) {
+            Thread.sleep(20);
+        } else if (50 < SIZE && SIZE <= 100) {
+            Thread.sleep(10);
+        } else if (100 < SIZE && SIZE <= 300) {
+            Thread.sleep(5);
+        } else if (300 < SIZE && SIZE <= 500) {
+            Thread.sleep(3);
+        } else if (500 < SIZE && SIZE <= 700) {
+            Thread.sleep(2);
+        } else if (700 < SIZE && SIZE <= 999) {
+            Thread.sleep(1);
+        }
+    }
 }
