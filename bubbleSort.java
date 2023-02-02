@@ -18,6 +18,9 @@ public class bubbleSort implements sortInterface {
                 visualizer.repaint();
             }
         }
+        visualizer.current_index = 0;
+        visualizer.traversing_index = 0;
+        new test(visualizer);
     }
 
     @Override

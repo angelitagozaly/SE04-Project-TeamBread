@@ -191,8 +191,6 @@ public class sortVisualizer extends Screen {
             } catch (InterruptedException e) {
             }
         }
-        current_index = 0;
-        traversing_index = 0;
     }
 
     public void onOpen() {
@@ -203,7 +201,6 @@ public class sortVisualizer extends Screen {
                 return null;
             }
         };
-        new test(this);
     }
 
     protected void initShuffler() {

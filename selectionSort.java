@@ -21,6 +21,9 @@ public class selectionSort implements sortInterface {
             visualizer.jLabel3.setText("Swaps: " + visualizer.swapCount);
             visualizer.traversing_index++;
         }
+        visualizer.current_index = 0;
+        visualizer.traversing_index = 0;
+        new test(visualizer);
     }
 
     @Override
