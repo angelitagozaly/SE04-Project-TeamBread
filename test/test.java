@@ -1,3 +1,7 @@
+package test;
+
+import app.sortVisualizer;
+
 public class test {
     private boolean arrayCheck = true;
 

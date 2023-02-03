@@ -1,5 +1,10 @@
+package sortingAlgo;
+
+import app.*;
+import test.*;
+
 public class bubbleSort implements sortInterface {
-    protected long Delay;
+    public long Delay;
 
     @Override
     public void runSort(sortVisualizer visualizer) throws InterruptedException {

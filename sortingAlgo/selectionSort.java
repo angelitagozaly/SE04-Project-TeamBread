@@ -1,5 +1,10 @@
+package sortingAlgo;
+
+import app.*;
+import test.test;
+
 public class selectionSort implements sortInterface {
-    protected long Delay;
+    public long Delay;
 
     @Override
     public void runSort(sortVisualizer visualizer) throws InterruptedException {
