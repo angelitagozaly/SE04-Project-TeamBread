@@ -1,7 +1,10 @@
-package app;
+package arraySorting;
 
 import sortingAlgo.*;
 import javax.swing.SwingWorker;
+
+import app.sortVisualizer;
+
 import java.util.Random;
 
 public class sortArray {

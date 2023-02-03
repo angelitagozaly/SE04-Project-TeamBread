@@ -3,7 +3,6 @@ package app;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 
 public class mainApp {
         public final JFrame window;
@@ -96,11 +95,6 @@ public class mainApp {
                 jTextField1.setForeground(new java.awt.Color(66, 35, 8));
                 jTextField1.setText("999");
                 jTextField1.setEditable(true);
-                // jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
-                // public void keyTyped(java.awt.event.KeyEvent evt) {
-                // jTextField1KeyTyped(evt);
-                // }
-                // });
 
                 javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
                 jPanel2.setLayout(jPanel2Layout);

@@ -1,6 +1,7 @@
 package sortingAlgo;
 
 import app.*;
+import arraySorting.*;
 import test.test;
 
 public class selectionSort implements sortInterface {

@@ -1,6 +1,7 @@
 package sortingAlgo;
 
 import app.*;
+import arraySorting.*;
 import test.*;
 
 public class bubbleSort implements sortInterface {
