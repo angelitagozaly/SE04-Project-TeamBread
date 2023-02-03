@@ -11,6 +11,7 @@ public class selectionSort implements sortInterface {
         visualizer.jLabel1.setText("Selection Sort");
         visualizer.jLabel2.setText("Time Complexity | Best: O(n^2) Average: O(n^2) Worst: O(n^2)");
         visualizer.current_index = 0;
+        sortArray sortA = new sortArray(visualizer);
         for (int i = 0; i < visualizer.SIZE - 1; i++) {
             int index = i;
             for (int j = i + 1; j < visualizer.SIZE; j++) {
@@ -18,10 +19,10 @@ public class selectionSort implements sortInterface {
                 if (visualizer.bar_height[j] < visualizer.bar_height[index]) {
                     index = j;
                 }
-                visualizer.setDelay();
+                sortA.setDelay();
                 visualizer.repaint();
             }
-            visualizer.swap(i, index);
+            sortA.swap(i, index);
             visualizer.swapCount++;
             visualizer.jLabel3.setText("Swaps: " + visualizer.swapCount);
             visualizer.traversing_index++;

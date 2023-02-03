@@ -5,24 +5,17 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
-import java.util.Random;
 import javax.swing.SwingWorker;
-
-import sortingAlgo.bubbleSort;
-import sortingAlgo.insertionSort;
-import sortingAlgo.selectionSort;
-
-import sortingAlgo.*;
 
 public class sortVisualizer extends Screen {
     private static final long serialVersionUID = 1L;
-    public final int WIDTH = 960, HEIGHT = 496; // WIDTH * 9 / 16;
+    public final int WIDTH = 960, HEIGHT = 496;
     public int SIZE;
     public float BAR_WIDTH;
     public float[] bar_height;
-    private SwingWorker<Void, Void> shuffler, sorter;
+    public SwingWorker<Void, Void> shuffler, sorter;
     public int current_index, traversing_index;
-    private String algo;
+    public String algo;
     public int swapCount = 0;
 
     public javax.swing.JLabel jLabel1;
@@ -40,10 +33,12 @@ public class sortVisualizer extends Screen {
         setBackground(new java.awt.Color(255, 244, 227));
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         initComponents();
-        initBarHeight();
+        sortA.initBarHeight();
         onOpen();
-        initShuffler();
+        sortA.initShuffler();
     }
+
+    sortArray sortA = new sortArray(this);
 
     private void initComponents() {
 
@@ -155,120 +150,13 @@ public class sortVisualizer extends Screen {
 
     }
 
-    public int arraySize() {
-        return SIZE;
-    }
-
-    public int getCurrentIndex() {
-        return current_index;
-    }
-
-    public void setCurrentIndex(int index) {
-        current_index = index;
-    }
-
-    public int getTraversingIndex() {
-        return traversing_index;
-    }
-
-    public void setTraversingIndex(int index) {
-        traversing_index = index;
-    }
-
-    public float getValue(int index) {
-        return bar_height[index];
-    }
-
-    public void callAlgo() {
-        if (algo == "Bubble") {
-            bubbleSort sort = new bubbleSort();
-            try {
-                sort.runSort(this);
-            } catch (InterruptedException e) {
-            }
-        } else if (algo == "Insertion") {
-            insertionSort sort = new insertionSort();
-            try {
-                sort.runSort(this);
-            } catch (InterruptedException e) {
-            }
-        } else if (algo == "Selection") {
-            selectionSort sort = new selectionSort();
-            try {
-                sort.runSort(this);
-            } catch (InterruptedException e) {
-            }
-        }
-    }
-
     public void onOpen() {
         sorter = new SwingWorker<>() {
             @Override
             public Void doInBackground() throws InterruptedException {
-                callAlgo();
+                sortA.callAlgo();
                 return null;
             }
         };
-    }
-
-    public void initShuffler() {
-        shuffler = new SwingWorker<>() {
-            @Override
-            public Void doInBackground() throws InterruptedException {
-                int middle = SIZE / 2;
-                for (int i = 0, j = middle; i < middle; i++, j++) {
-                    int random_index = new Random().nextInt(SIZE);
-                    swap(i, random_index);
-
-                    random_index = new Random().nextInt(SIZE);
-                    swap(j, random_index);
-
-                    Thread.sleep(1);
-                    repaint();
-                }
-
-                return null;
-            }
-
-            @Override
-            public void done() {
-                super.done();
-                sorter.execute();
-            }
-        };
-        shuffler.execute();
-    }
-
-    public void initBarHeight() {
-        float interval = (float) HEIGHT / SIZE;
-        for (int i = 0; i < SIZE; i++)
-            bar_height[i] = i * interval;
-    }
-
-    public void swap(int indexA, int indexB) {
-        float temp = bar_height[indexA];
-        bar_height[indexA] = bar_height[indexB];
-        bar_height[indexB] = temp;
-
-    }
-
-    public void setDelay() throws InterruptedException {
-        if (1 < SIZE && SIZE <= 10) {
-            Thread.sleep(100);
-        } else if (10 < SIZE && SIZE <= 30) {
-            Thread.sleep(50);
-        } else if (30 < SIZE && SIZE <= 50) {
-            Thread.sleep(20);
-        } else if (50 < SIZE && SIZE <= 100) {
-            Thread.sleep(10);
-        } else if (100 < SIZE && SIZE <= 300) {
-            Thread.sleep(5);
-        } else if (300 < SIZE && SIZE <= 500) {
-            Thread.sleep(3);
-        } else if (500 < SIZE && SIZE <= 700) {
-            Thread.sleep(2);
-        } else if (700 < SIZE && SIZE <= 999) {
-            Thread.sleep(1);
-        }
     }
 }
